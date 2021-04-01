@@ -22,6 +22,5 @@ class RGBOutModel(OutModel):
     def __init__(self, style=None, parent=None):
         super().__init__(style=style)
 
-
-    def put_out(self):
+    def compute(self):
         pass

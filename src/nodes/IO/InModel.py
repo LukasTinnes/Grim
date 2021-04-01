@@ -28,5 +28,5 @@ class InModel(NodeDataModel):
         return self.name
 
     # Overwritten in submodules
-    def put_in(self):
+    def compute(self):
         pass

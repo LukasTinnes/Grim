@@ -33,5 +33,5 @@ class OutModel(NodeDataModel):
         return self.name
 
     # Overwritten in submodules
-    def put_out(self):
+    def compute(self):
         pass

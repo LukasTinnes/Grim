@@ -25,5 +25,5 @@ class RGBInModel(InModel):
     def __init__(self, style=None, parent=None):
         super().__init__(style=style)
 
-    def put_in(self):
+    def compute(self):
         pass
