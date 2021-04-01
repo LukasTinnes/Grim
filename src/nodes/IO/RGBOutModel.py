@@ -18,6 +18,7 @@ class RGBOutModel(OutModel):
                     'output': {}
                     }
     data_type = NodeDataType("Signal", "Signal")
+    port_caption_visible = True
 
     def __init__(self, style=None, parent=None):
         super().__init__(style=style)
