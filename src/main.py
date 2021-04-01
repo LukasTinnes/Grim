@@ -41,7 +41,6 @@ def main(app, init_style):
     view.show()
     return scene, view
 
-
 if __name__ == '__main__':
     # Create logging
     logging.basicConfig(filename="debug.log", level=logging.DEBUG)

@@ -1,4 +1,6 @@
 from qtpynodeeditor import NodeDataType
+from qtpy.QtWidgets import QLineEdit
+from qtpy.QtGui import QDoubleValidator
 
 from nodes.IO.InModel import InModel
 
@@ -24,6 +26,14 @@ class RGBInModel(InModel):
 
     def __init__(self, style=None, parent=None):
         super().__init__(style=style)
+        self._number = None
+        self._line_edit = QLineEdit()
+        self._line_edit.setMaximumSize(self._line_edit.sizeHint())
+        self._line_edit.setText("Yee")
+
+    def embedded_widget(self):
+        'The number source has a line edit widget for the user to type in'
+        return self._line_edit
 
     def compute(self):
         pass
