@@ -6,12 +6,14 @@ from PyQt5.QtWidgets import QApplication
 from qtpynodeeditor import (NodeData, NodeDataModel, NodeDataType,
                             NodeValidationState, Port, PortType, StyleCollection)
 
-from nodes.ADDModel import ADDModel
-from nodes.DIVModel import DIVModel
-from nodes.MODModel import MODModel
-from nodes.MULModel import MULModel
-from nodes.SUBModel import SUBModel
-from nodes.XORModel import XORModel
+from nodes.IO.RGBInModel import RGBInModel
+from nodes.IO.RGBOutModel import RGBOutModel
+from nodes.arithmetics.ADDModel import ADDModel
+from nodes.arithmetics.DIVModel import DIVModel
+from nodes.arithmetics.MODModel import MODModel
+from nodes.arithmetics.MULModel import MULModel
+from nodes.arithmetics.SUBModel import SUBModel
+from nodes.arithmetics.XORModel import XORModel
 
 
 def main(app, init_style):
@@ -26,10 +28,13 @@ def main(app, init_style):
     registry = nodeeditor.DataModelRegistry()
     # Add node models to registry
     models = [XORModel, ADDModel, SUBModel, MULModel, DIVModel, MODModel]
+    # IOModels
+    io_models = [RGBInModel, RGBOutModel]
     for model in models:
         registry.register_model(model, category="Arithmetics", style=style)
+    for model in io_models:
+        registry.register_model(model, category="IO", style=style)
     scene = nodeeditor.FlowScene(style=style, registry=registry)
-
     view = nodeeditor.FlowView(scene)
     view.setWindowTitle("Grim")
     view.resize(1000, 750)
@@ -42,6 +47,6 @@ if __name__ == '__main__':
     logging.basicConfig(filename="debug.log", level=logging.DEBUG)
     # Create and run qt5 application
     app = QApplication([])
-    scene, view = main(app, "../data/styles/tatami.json")
-    view.show()
+    app_scene, app_view = main(app, "../data/styles/tatami.json")
+    app_view.show()
     app.exec_()

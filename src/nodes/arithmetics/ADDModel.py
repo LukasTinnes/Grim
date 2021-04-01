@@ -1,4 +1,4 @@
-from nodes.BaseDataModel import BaseDataModel
+from nodes.arithmetics.BaseDataModel import BaseDataModel
 
 
 class ADDModel(BaseDataModel):
