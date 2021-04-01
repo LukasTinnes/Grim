@@ -8,18 +8,8 @@ Base Class for Outputs (inits overwrite input number)
 class OutModel(NodeDataModel):
     # Enable Model title
     caption_visible = True
-    # Define port
-    num_ports = {
-        'input': 3,
-        'output': 0,
-    }
-    port_caption = {'input': {0: 'A',
-                              1: 'B',
-                              2: 'C',
-                              },
-                    }
     # Port Caption
-    port_caption_visible = True
+    port_caption_visible = False
     # Define datatype for checks later
     data_type = NodeDataType("Signal", "Signal")
 

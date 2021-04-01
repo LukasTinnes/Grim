@@ -8,11 +8,6 @@ Base Class for Inputs
 class InModel(NodeDataModel):
     # Enable Model title
     caption_visible = True
-    # Define port
-    num_ports = {
-        'input': 0,
-        'output': 0,
-    }
     # Port Caption
     port_caption_visible = False
     # Define datatype for checks later
